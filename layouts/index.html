@@ -1,0 +1,22 @@
+{{ define "main" }}
+
+{{ partial "nav" .}}
+
+<main class="main">
+  <div class="markdown">{{ .Content }}</div>
+
+  <article class="centered">
+      <a href="/img/c-omrade.jpg">
+        <img
+        class="centered__image"
+        src="/img/c-omrade.jpg"
+        alt="c-omrade"
+        style="max-height: 500px"
+        />
+    </a>
+</article>
+</main>
+
+
+
+{{ end }}
