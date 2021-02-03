@@ -1,36 +1,38 @@
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+$dark: #121212;
+$light: #ffffff;
+$color-primary: #ff4946;
+$color-secondary: #4d39ff;
+$color-link: CornflowerBlue;
+$color-link--visited: SlateBlue;
+$transition-duration: 0s;
+
+$box-shadow-spread : 6px 6px 20px;
+
 html {
   font-family: sans-serif;
   scroll-behavior: smooth;
 }
 
-:root {
-  --color-bg: #121212;
-  --color-text: #ffffff;
-  --color-primary: #ff4946;
-  --color-secondary: #4d39ff;
-  --color-link: CornflowerBlue;
-  --color-link--visited: SlateBlue;
-  --transition-duration: 0s;
-}
-
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  transition: background var(--transition-duration), color var(--transition-duration);
-  @media (prefers-color-scheme: light) {
-    & {
-      background: #ffffff;
-      background: var(--color-text);
-      color: #141516;
-      color: var(--color-bg);
-    }
+  background: $light;
+  color: $dark;
+  transition: background $transition-duration, color $transition-duration;
+  @include dark-mode {
+    background: $dark;
+    color: $light;
   }
 }
 
 a {
-  color: var(--color-link);
+  color: $color-link;
   &:visited {
-    color: var(--color-link--visited);
+    color: $color-link--visited;
   }
 }
 
@@ -63,8 +65,8 @@ a {
 .btn {
   border-radius: 3px;
   padding: 0.2rem 0.4rem;
-  background-color: var(--color-text);
-  color: var(--color-bg);
+  background-color: $light;
+  color: $dark;
   border: 1px solid transparent;
 
   &:hover {
@@ -89,14 +91,15 @@ a {
 
   @media (prefers-color-scheme: light) {
     & {
-      background-color: var(--color-bg);
-      color: var(--color-text);
+      background-color: $dark;
+      color: $light;
     }
   }
   transition: all 0.2s;
 }
 
 .navigation {
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -183,10 +186,31 @@ a {
     bottom: 0;
     left: 0;
     z-index: 1030;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
 .compteur {
   max-height: 20px;
+}
+
+
+.card {
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: $box-shadow-spread transparentize(darken($dark, 30), 0.9);
+  background: linear-gradient(
+    to left top,
+    transparentize($dark, 1)
+    transparentize($dark, 0.95),
+  );
+
+  @include dark-mode {
+    box-shadow: $box-shadow-spread transparentize(darken($light, 10), 0.98);
+    background: linear-gradient(
+      to left top,
+      transparentize($light, 0.95),
+      transparentize($light, 0.98)
+    );
+  }
 }
