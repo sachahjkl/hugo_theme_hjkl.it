@@ -13,6 +13,7 @@
   <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}" />
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.meta_img | default .Site.Params.logofile }}" />
   <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
+  {{ hugo.Generator }}
 
   <link rel="canonical" href="{{ .Permalink }}" />
 

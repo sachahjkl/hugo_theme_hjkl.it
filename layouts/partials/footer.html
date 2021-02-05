@@ -2,5 +2,8 @@
   <!-- <div class="d-flex justify-content-end px-2 py-3">
     {{ partial "gotop" . }}
   </div> -->
-  <img class="compteur" src="https://profile-counter.glitch.me/hjkl.it/count.svg" alt="Hits">
+  <div class="text-muted" style="margin-top: .5rem; margin-bottom: .5rem">site généré le : <b><time>{{ now.Format "02/01/2006 à 15h04" | default "Heure de génération" }}</time></b></div>
+  <div>
+    <img class="compteur" src="https://profile-counter.glitch.me/hjkl.it/count.svg" alt="Hits">
+  </div>
 </footer>

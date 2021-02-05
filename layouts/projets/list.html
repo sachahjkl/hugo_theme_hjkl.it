@@ -3,11 +3,24 @@
 <main class="main">
   <h1 class="">{{ .Title }}</h1>
   <div class="markdown">{{ .Content }}</div>
-  <ul>
+  <hr>
+  <h2 >projets notables</h2>
     {{ range sort .Pages "Title" "asc" }}
-    <li class="my-2">
-      <span>{{.Params.icon}}</span><a href="{{ .Permalink }}"> {{ .Title }}</a>
-    </li>
+    <article class="projet">
+      <section class="projet__image-box">
+        <img src="{{ .Params.img }}" alt="{{.Params.img}}" class="projet__image pixelated">
+      </section>
+      <section class="projet__text">
+        <h3 class="projet__title">
+            <span>{{.Params.icon}}</span><a href="{{ .Params.project_url | default .Permalink }}"> {{ .Title }}</a>
+        </h3>
+        <p class="projet__description">
+         {{.Content}}
+        </p>
+        <span> <a href="{{.Permalink}}">Plus ➜</a> </span>
+      </section>
+    </article>
+
     {{ end }}
   </ul>
 </main>
