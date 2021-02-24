@@ -4,6 +4,19 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 $dark: #121212;
 $light: #ffffff;
 $color-primary: #ff4946;
@@ -13,10 +26,13 @@ $color-link--visited: SlateBlue;
 $text-muted: #8f8f8f;
 $transition-duration: 0s;
 
-$box-shadow-spread : 6px 6px 20px;
+$box-shadow-spread: 6px 6px 20px;
 
 html {
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   scroll-behavior: smooth;
 }
 
@@ -100,7 +116,6 @@ a {
 }
 
 .navigation {
-
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -155,7 +170,7 @@ a {
   }
 }
 
-.text-muted{
+.text-muted {
   color: $text-muted;
 }
 
@@ -199,15 +214,13 @@ a {
   max-height: 20px;
 }
 
-
 .card {
   padding: 1rem 2rem;
   border-radius: 0.3rem;
   box-shadow: $box-shadow-spread transparentize(darken($dark, 30), 0.9);
   background: linear-gradient(
     to left top,
-    transparentize($dark, 1)
-    transparentize($dark, 0.95),
+    transparentize($dark, 1) transparentize($dark, 0.95)
   );
 
   @include dark-mode {
