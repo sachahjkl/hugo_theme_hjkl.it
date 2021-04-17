@@ -2,8 +2,37 @@
   <!-- <div class="d-flex justify-content-end px-2 py-3">
     {{ partial "gotop" . }}
   </div> -->
-  <div class="text-muted" style="margin-top: .5rem; margin-bottom: .5rem">site généré le : <b><time>{{ now.Format "02/01/2006 à 15h04" | default "Heure de génération" }}</time></b></div>
+  <div class="text-muted" style="margin-top: 0.5rem">
+    site généré le :
+    <b>
+      <time>
+        {{ now.Format "02/01/2006 à 15h04" | default "Heure de génération" }}
+      </time>
+    </b>
+  </div>
+
+  <div class="text-muted text-center justify-content-center">
+    <p class="text-break">
+      <img
+        class="me-1 d-inline"
+        src="/img/eth-logo.svg"
+        alt="ETH"
+        width="12px"
+        style="margin-right: 0.25rem"
+      />
+      Adresse ETH :
+      <b>
+        {{ if .Site.Params.ethQR }}
+        <a href="{{ .Site.Params.ethQR }}">{{.Site.Params.ethAdress}}</a>
+        {{ else }} {{.Site.Params.ethAdress}} {{ end }}
+      </b>
+    </p>
+  </div>
   <div>
-    <img class="compteur" src="https://profile-counter.glitch.me/hjkl.it/count.svg" alt="Hits">
+    <img
+      class="compteur"
+      src="https://profile-counter.glitch.me/hjkl.it/count.svg"
+      alt="Hits"
+    />
   </div>
 </footer>

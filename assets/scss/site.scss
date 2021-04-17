@@ -232,3 +232,27 @@ a {
     );
   }
 }
+
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+d-inline {
+  display: inline;
+}
+
+.text-center {
+  text-align: center !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.d-flex {
+  display: flex !important;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
