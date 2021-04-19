@@ -133,6 +133,10 @@ a {
     margin: 5px;
     text-decoration: none;
 
+    &--active {
+      font-weight: bold;
+    }
+
     &--brand {
       // font-size: 2rem;
       &::after {

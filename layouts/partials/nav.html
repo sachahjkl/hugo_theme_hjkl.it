@@ -1,11 +1,22 @@
 <nav class="navigation">
   <ul class="navigation__list">
     <li class="navigation__link navigation__link--brand">
-      <img class="navigation__logo pixelated font-sized" src="{{ .Site.BaseURL }}/favicon.ico" alt="favicon" />
+      <img
+        class="navigation__logo pixelated font-sized"
+        src="{{ .Site.BaseURL }}/favicon.ico"
+        alt="favicon"
+      />
       acha Froment
     </li>
-    {{ range .Site.Menus.primary }}
-    <li><a class="navigation__link" href="{{ .URL }}">{{.Pre}} {{ .Name}}</a></li>
+    {{ $url := .URL }} {{ range .Site.Menus.primary }}
+    <li>
+      <a
+        class="navigation__link {{ if eq $url .URL }}navigation__link--active{{ end }}"
+        href="{{ .URL }}"
+      >
+        {{.Pre}} {{ .Name}}
+      </a>
+    </li>
     {{ end }}
   </ul>
 </nav>
