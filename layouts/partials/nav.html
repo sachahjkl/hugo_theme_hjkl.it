@@ -8,7 +8,7 @@
       />
       acha Froment
     </li>
-    {{ $url := .URL }} {{ range .Site.Menus.primary }}
+    {{ $url := .RelPermalink }} {{ range .Site.Menus.primary }}
     <li>
       <a
         class="navigation__link {{ if eq $url .URL }}navigation__link--active{{ end }}"
