@@ -10,29 +10,47 @@
       </time>
     </b>
   </div>
-
-  <div class="text-muted text-center justify-content-center">
-    <p class="text-break">
-      <img
-        class="me-1 d-inline"
-        src="/img/eth-logo.svg"
-        alt="ETH"
-        width="12px"
-        style="margin-right: 0.25rem"
-      />
-      Adresse ETH :
-      <b>
-        {{ if .Site.Params.ethQR }}
-        <a href="{{ .Site.Params.ethQR }}">{{.Site.Params.ethAdress}}</a>
-        {{ else }} {{.Site.Params.ethAdress}} {{ end }}
-      </b>
-    </p>
-  </div>
-  <div>
+<div class="text-muted text-center justify-content-center">
+  {{ if .Site.Params.ethAddress }}
+  <p class="text-break">
     <img
-      class="compteur"
-      src="https://profile-counter.glitch.me/hjkl.it/count.svg"
-      alt="Hits"
+    class="me-1 d-inline"
+    src="/img/eth-logo.svg"
+    alt="ETH"
+    width="12px"
+    style="margin-right: 0.25rem"
     />
-  </div>
+    Adresse ETH :
+    <b>
+      {{ if .Site.Params.ethQR }}
+      <a href="{{ .Site.Params.ethQR }}">{{.Site.Params.ethAddress}}</a>
+      {{ else }} {{.Site.Params.ethAddress}} {{ end }}
+    </b>
+  </p>
+  {{ end }}
+  {{ if .Site.Params.xmrAddress }}
+  <p class="text-break">
+    <img
+    class="me-1 d-inline"
+    src="/img/xmr-logo.svg"
+    alt="XMR"
+    width="12px"
+    style="margin-right: 0.25rem"
+    />
+    Adresse Monero :
+    <b>
+      {{ if .Site.Params.xmrQR }}
+      <a href="{{ .Site.Params.xmrQR }}">{{.Site.Params.xmrAddress}}</a>
+      {{ else }} {{.Site.Params.xmrAddress}} {{ end }}
+    </b>
+  </p>
+  {{ end }}
+</div>
+<div>
+  <img
+  class="compteur"
+  src="https://profile-counter.glitch.me/hjkl.it/count.svg"
+  alt="Hits"
+  />
+</div>
 </footer>
