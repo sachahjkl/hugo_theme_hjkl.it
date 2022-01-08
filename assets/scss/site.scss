@@ -260,3 +260,17 @@ img,
 svg {
   vertical-align: middle;
 }
+
+.header {
+  margin: 0px 5px;
+  margin-bottom: .5rem;
+  text-align: center;
+  background-color: #ff4946;
+  padding: .5rem .1rem;
+  box-shadow: $box-shadow-spread transparentize(darken($light, 10), 0.98);
+  color: white;
+}
+
+.header p {
+  margin: 0;
+}

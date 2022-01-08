@@ -3,6 +3,8 @@
   {{ partial "head" .}}
 
   <body class="lightswitch-dark">
+    {{ partial "header" }}
+    {{ partial "nav" .}}
     {{ block "main" . }}{{ end }} {{ partial "footer" . }}
     {{ partial "gotop" . }}
 
@@ -14,5 +16,6 @@
 
     {{/*  <script src="{{ .Site.BaseURL }}js/lightswitch.js"></script>  */}}
     <script src="/js/gotop.js"></script>
+    <script src="/js/copyip.js"></script>
   </body>
 </html>
