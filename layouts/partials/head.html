@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer" />
   <meta name="description" content="{{ .Description | default .Site.Params.description }}" />
   <meta property="og:site_name" content="{{ .Site.Title }}" />
-  <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
+  <meta property="og:locale" content="{{ .Site.Language.Locale }}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}" />
@@ -24,12 +24,12 @@
     crossorigin="anonymous"
   />  */}}
 
-  {{ $options := (dict "targetPath" "css/site.css" "outputStyle" "compressed" "enableSourceMap" true) }} {{ $styles := resources.Get "scss/site.scss" | resources.ToCSS $options }}
+  {{ $options := (dict "targetPath" "css/site.css" "outputStyle" "compressed" "enableSourceMap" true) }} {{ $styles := resources.Get "scss/site.scss" | css.Sass $options }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen" />
 
   <link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.ico" />
 
-  {{ if .Site.RSSLink }}
-  <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ with .OutputFormats.Get "rss" }}
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
   {{ end }}
 </head>
