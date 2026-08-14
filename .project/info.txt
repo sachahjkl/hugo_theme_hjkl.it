@@ -1,0 +1,2 @@
+name=hugo_theme_hjkl.it
+description=Thème Hugo de mon site personnel.
